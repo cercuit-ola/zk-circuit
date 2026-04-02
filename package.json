@@ -1,0 +1,38 @@
+{
+  "name": "zk-circuits",
+  "version": "1.0.0",
+  "description": "Zero-Knowledge circuit implementations in Circom — from fundamentals to advanced patterns",
+  "scripts": {
+    "test": "mocha test/*.test.js --timeout 120000",
+    "compile:range": "circom circuits/range_check/range_check.circom --r1cs --wasm --sym -o build/range_check",
+    "compile:merkle": "circom circuits/merkle_proof/merkle_proof.circom --r1cs --wasm --sym -o build/merkle_proof",
+    "compile:set": "circom circuits/set_membership/set_membership.circom --r1cs --wasm --sym -o build/set_membership",
+    "compile:comparison": "circom circuits/comparison/comparison.circom --r1cs --wasm --sym -o build/comparison",
+    "compile:sha256": "circom circuits/sha256_preimage/sha256_preimage.circom --r1cs --wasm --sym -o build/sha256_preimage",
+    "compile:all": "npm run compile:range && npm run compile:merkle && npm run compile:set && npm run compile:comparison && npm run compile:sha256",
+    "setup": "bash scripts/setup.sh",
+    "prove": "bash scripts/prove.sh",
+    "verify": "bash scripts/verify.sh"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "circom_tester": "^0.0.19",
+    "mocha": "^10.2.0"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "zk",
+    "circom",
+    "snark",
+    "zk-snark",
+    "cryptography",
+    "merkle",
+    "range-check"
+  ],
+  "license": "MIT"
+}
